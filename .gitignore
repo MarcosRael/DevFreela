@@ -1,0 +1,56 @@
+# Ignorar arquivos temporários
+[Oo]bj/
+[Bb]in/
+
+# Ignorar arquivos de dependências e pacotes NuGet
+*.nuget.props
+*.paket.references
+paket-files/
+*.paket.local
+*.paket.restore
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignorar arquivos de compilação
+[Tt]est[Rr]esult*/
+[Ll]og/
+[Ll]og.txt
+[Ll]og.xml
+[Nn]unit[Rr]esults/
+
+# Ignorar arquivos de usuário do Visual Studio
+*.user
+*.suo
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignorar arquivos de configuração do Rider
+.idea/
+
+# Ignorar arquivos de configuração do Visual Studio Code
+.vscode/
+
+# Ignorar arquivos de compilação Mono
+mono_crash.*
+
+# Ignorar arquivos de histórico de alterações
+[Tt]humbs.db
+[Dd]esktop.ini
+*.log
+
+# Ignorar arquivos de backup do Windows
+[Tt]emp/
+[Tt]mp/
+
+# Ignorar arquivos de análise de código
+*.DotSettings.user
+*.vscode/
+
+# Ignorar arquivos específicos do Rider
+.idea/
+*.sln.iml
+
+# Ignorar arquivos específicos do Visual Studio
+.vs/
