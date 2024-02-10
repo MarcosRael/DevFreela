@@ -37,5 +37,15 @@ namespace DevFreeka.Core.Entities
         public List<Project> OwnedProjects { get; private set; }
 
         public List<Project> FreelanceProjects { get; private set; }
+
+
+        public void Update(string fullName, string email, DateTime birthDate, bool active)
+        {
+            this.FullName = fullName;
+            this.Email = email;
+            this.BirthDate = birthDate;
+            this.Active = active;
+        }
+
     }
 }
