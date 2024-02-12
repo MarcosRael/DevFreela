@@ -4,14 +4,14 @@
     "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj": {
+    "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj",
-        "projectName": "DevFreela.API",
-        "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj",
+        "projectUniqueName": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj",
+        "projectName": "DevFreela.Core",
+        "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj",
         "packagesPath": "C:\\Users\\raelmar\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\obj\\",
+        "outputPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,76 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj",
+        "projectName": "DevFreela.API",
+        "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\DevFreela.API.csproj",
+        "packagesPath": "C:\\Users\\raelmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raelmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
+              },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj"
+              },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -65,6 +135,137 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj",
+        "projectName": "DevFreela.Application",
+        "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj",
+        "packagesPath": "C:\\Users\\raelmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raelmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
+              },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj",
+        "projectName": "DevFreela.Infrastruture",
+        "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj",
+        "packagesPath": "C:\\Users\\raelmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raelmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

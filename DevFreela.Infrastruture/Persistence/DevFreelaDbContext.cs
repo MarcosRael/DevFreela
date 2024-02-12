@@ -1,9 +1,4 @@
 ﻿using DevFreeka.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFreela.Infrastruture.Persistence
 {
@@ -20,16 +15,16 @@ namespace DevFreela.Infrastruture.Persistence
                 new Project("Meu projeto ASPNET Core 3", "Minha descrição de projeto 3", 1, 1, 30000)
             };
 
-            Users = new List<User> 
-            { 
+            Users = new List<User>
+            {
                 new User("Marcos Raél", "marcos.rael@email.com", new DateTime(1991,1,1)),
                 new User("Pedro Henrique", "pedro.henrique@email.com", new DateTime(1995,1,1)),
                 new User("Leandro Leonardo", "leandro.leonardo@email.com", new DateTime(2000,1,1)),
-            
+
             };
 
-            Skills = new List<Skill> 
-            { 
+            Skills = new List<Skill>
+            {
                 new Skill(".Net Core"),
                 new Skill("C#"),
                 new Skill("SQL")

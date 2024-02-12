@@ -33,3 +33,9 @@ C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\ref\De
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\DevFreela.API.sourcelink.json
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\DevFreela.API.Properties.Resources.resources
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\DevFreela.API.csproj.GenerateResource.cache
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Application.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Core.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Infrastruture.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Core.pdb
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Application.pdb
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFreela.Infrastruture.pdb

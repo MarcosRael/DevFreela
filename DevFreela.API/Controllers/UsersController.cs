@@ -1,4 +1,6 @@
 ﻿using DevFreela.API.Models;
+using DevFreela.Application.InputModels;
+using DevFreela.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
@@ -8,24 +10,32 @@ namespace DevFreela.API.Controllers
     [Route("api/users")]
     public class UsersController : ControllerBase
     {
+        private readonly IUserService _userService;
 
-        public UsersController(ExampleLifeTimeObject exampleLifeTime)
+        public UsersController(IUserService userService)
         {
-            exampleLifeTime.Example = "Update at UsersController";
+            _userService = userService;
         }
 
         // api/users/1
         [HttpGet]
         public IActionResult GetById(int id)
         {
-            return Ok();
+            var user = _userService.GetById(id);
+
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
         }
 
         // api/users
         [HttpPost]
-        public IActionResult Post([FromBody] CreateUserModel createUser)
+        public IActionResult Post([FromBody] NewUserInputModel inputModel)
         {
-            return CreatedAtAction(nameof(GetById), new { id = 1 }, createUser);
+            var id = _userService.Create(inputModel);
+
+            return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
         }
 
 

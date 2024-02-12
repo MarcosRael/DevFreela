@@ -1,5 +1,7 @@
-
 using DevFreela.API.Models;
+using DevFreela.Application.Services.Implementations;
+using DevFreela.Application.Services.Interfaces;
+using DevFreela.Infrastruture.Persistence;
 
 namespace DevFreela.API
 {
@@ -21,7 +23,14 @@ namespace DevFreela.API
                             .Configure<MaintenanceTimeOption>(builder.Configuration.GetSection("MaintenanceTime"));
 
             //.Services.AddSingleton<ExampleLifeTimeObject>(e => new ExampleLifeTimeObject { Example = "Initial Stage Singleton" });
-            builder.Services.AddScoped<ExampleLifeTimeObject>(e => new ExampleLifeTimeObject { Example = "Initial Stage Scope" });
+            //builder.Services.AddScoped<ExampleLifeTimeObject>(e => new ExampleLifeTimeObject { Example = "Initial Stage Scope" });
+
+
+            builder.Services.AddSingleton<DevFreelaDbContext>();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ISkillService, SkillService>();
+
 
             // Add services to the container.
             builder.Services.AddControllers();
