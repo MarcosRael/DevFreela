@@ -17,7 +17,6 @@ namespace DevFreela.API.Controllers
             _userService = userService;
         }
 
-        // api/users/1
         [HttpGet]
         public IActionResult GetById(int id)
         {
@@ -29,7 +28,6 @@ namespace DevFreela.API.Controllers
             return Ok(user);
         }
 
-        // api/users
         [HttpPost]
         public IActionResult Post([FromBody] NewUserInputModel inputModel)
         {
@@ -38,8 +36,6 @@ namespace DevFreela.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
         }
 
-
-        // api/users/1/login
         [HttpPut]
         public IActionResult Login(int id, [FromBody] LoginModel login)
         {

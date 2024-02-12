@@ -17,7 +17,6 @@ namespace DevFreela.API.Controllers
             this._projectService = projectService;
         }
 
-        // api/projects?query=net core
         [HttpGet]
         public IActionResult GetAll(string query)
         {
@@ -26,7 +25,6 @@ namespace DevFreela.API.Controllers
             return Ok(projects);
         }
 
-        // api/projects/5
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -49,7 +47,6 @@ namespace DevFreela.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
         }
 
-        // api/projects/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UpdateProjectInputModel inputModel)
         {
@@ -61,7 +58,6 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/3
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -70,7 +66,6 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/comments
         [HttpPost("{id}/comments")]
         public IActionResult PostComment(int id, [FromBody] CreateCommentInputModel inputModel)
         {
@@ -79,7 +74,6 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/start
         [HttpPut("{id}/start")]
         public IActionResult Start(int id)
         {
@@ -88,7 +82,6 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/finish
         [HttpPut("{id}/finish")]
         public IActionResult Finish(int id)
         {

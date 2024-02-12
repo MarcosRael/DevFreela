@@ -7,11 +7,7 @@ namespace DevFreela.API
 {
     public class Program
     {
-
-        public Program()
-        {
-            
-        }
+        public Program() {}
 
         public static IConfiguration Configuration { get; }
 
@@ -19,18 +15,10 @@ namespace DevFreela.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.Configure<OpeningTimeOption>(builder.Configuration.GetSection("openingTime"))
-                            .Configure<MaintenanceTimeOption>(builder.Configuration.GetSection("MaintenanceTime"));
-
-            //.Services.AddSingleton<ExampleLifeTimeObject>(e => new ExampleLifeTimeObject { Example = "Initial Stage Singleton" });
-            //builder.Services.AddScoped<ExampleLifeTimeObject>(e => new ExampleLifeTimeObject { Example = "Initial Stage Scope" });
-
-
             builder.Services.AddSingleton<DevFreelaDbContext>();
             builder.Services.AddScoped<IProjectService, ProjectService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ISkillService, SkillService>();
-
 
             // Add services to the container.
             builder.Services.AddControllers();
