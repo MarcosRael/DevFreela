@@ -1,43 +1,67 @@
 ﻿using DevFreeka.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevFreela.Infrastruture.Persistence
 {
-    public class DevFreelaDbContext
+    public class DevFreelaDbContext : DbContext
     {
+        public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options) : base(options) {}
 
-        public DevFreelaDbContext()
+        public DbSet<Project> Projects { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
+
+        public DbSet<UserSkill> UserSkills { get; set; }
+
+        public DbSet<ProjectComment> ProjectComments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Project>()
+                .HasKey(p => p.Id);
 
-            Projects = new List<Project>
-            {
-                new Project("Meu projeto ASPNET Core 1", "Minha descrição de projeto 1", 1, 1, 10000),
-                new Project("Meu projeto ASPNET Core 2", "Minha descrição de projeto 2", 1, 1, 20000),
-                new Project("Meu projeto ASPNET Core 3", "Minha descrição de projeto 3", 1, 1, 30000)
-            };
+            modelBuilder.Entity<Project>()
+                .HasOne(p => p.Freelancer)
+                .WithMany(f => f.FreelanceProjects)
+                .HasForeignKey(p => p.IdFreelancer)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            Users = new List<User>
-            {
-                new User("Marcos Raél", "marcos.rael@email.com", new DateTime(1991,1,1)),
-                new User("Pedro Henrique", "pedro.henrique@email.com", new DateTime(1995,1,1)),
-                new User("Leandro Leonardo", "leandro.leonardo@email.com", new DateTime(2000,1,1)),
+            modelBuilder.Entity<Project>()
+                .HasOne(p => p.Client)
+                .WithMany(f => f.OwnedProjects)
+                .HasForeignKey(p => p.IdClient)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            };
+            modelBuilder.Entity<ProjectComment>()
+                .HasKey(p => p.Id);
 
-            Skills = new List<Skill>
-            {
-                new Skill(".Net Core"),
-                new Skill("C#"),
-                new Skill("SQL")
-            };
+            modelBuilder.Entity<ProjectComment>()
+                .HasOne(p => p.Project)
+                .WithMany(f => f.Comments)
+                .HasForeignKey(p => p.IdProject);
+
+            modelBuilder.Entity<ProjectComment>()
+                .HasOne(p => p.User)
+                .WithMany(f => f.Comments)
+                .HasForeignKey(p => p.IdUser);
+
+            modelBuilder.Entity<Skill>()
+                .HasKey(p => p.Id);
+            
+            modelBuilder.Entity<User>()
+                .HasKey(p=> p.Id);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Skills)
+                .WithOne()
+                .HasForeignKey(u => u.IdSkill)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<UserSkill>()  
+                .HasKey(p=> p.Id);
         }
-
-        public List<Project> Projects { get; set; }
-
-        public List<User> Users { get; set; }
-
-        public List<Skill> Skills { get; set; }
-
-        public List<ProjectComment> ProjectComments { get; set; }
 
     }
 }
