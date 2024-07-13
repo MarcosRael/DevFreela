@@ -1,5 +1,6 @@
 ﻿using DevFreeka.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DevFreela.Infrastruture.Persistence
 {
@@ -19,49 +20,7 @@ namespace DevFreela.Infrastruture.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Project>()
-                .HasKey(p => p.Id);
-
-            modelBuilder.Entity<Project>()
-                .HasOne(p => p.Freelancer)
-                .WithMany(f => f.FreelanceProjects)
-                .HasForeignKey(p => p.IdFreelancer)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Project>()
-                .HasOne(p => p.Client)
-                .WithMany(f => f.OwnedProjects)
-                .HasForeignKey(p => p.IdClient)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<ProjectComment>()
-                .HasKey(p => p.Id);
-
-            modelBuilder.Entity<ProjectComment>()
-                .HasOne(p => p.Project)
-                .WithMany(f => f.Comments)
-                .HasForeignKey(p => p.IdProject);
-
-            modelBuilder.Entity<ProjectComment>()
-                .HasOne(p => p.User)
-                .WithMany(f => f.Comments)
-                .HasForeignKey(p => p.IdUser);
-
-            modelBuilder.Entity<Skill>()
-                .HasKey(p => p.Id);
-            
-            modelBuilder.Entity<User>()
-                .HasKey(p=> p.Id);
-
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Skills)
-                .WithOne()
-                .HasForeignKey(u => u.IdSkill)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<UserSkill>()  
-                .HasKey(p=> p.Id);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
     }
 }

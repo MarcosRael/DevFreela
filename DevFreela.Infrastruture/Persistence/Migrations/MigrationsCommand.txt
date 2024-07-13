@@ -1,0 +1,6 @@
+
+-- Criar as migrations
+dotnet ef migrations add InitialMigration -s ../DevFreela.API/DevFreela.API.csproj -o ./Persistence/Migrations
+
+-- Criar as tabelas no banco de dados
+dotnet ef database update -s ../DevFreela.API/DevFreela.API.csproj
