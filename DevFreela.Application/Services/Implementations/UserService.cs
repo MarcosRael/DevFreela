@@ -25,6 +25,7 @@ namespace DevFreela.Application.Services.Implementations
 
 
             _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
 
             return user.Id;
         }
@@ -52,6 +53,8 @@ namespace DevFreela.Application.Services.Implementations
             var user = _dbContext.Users.SingleOrDefault(u => u.Id == inputModel.Id);
 
             user?.Update(inputModel.FullName, inputModel.Email, inputModel.BirthDate, inputModel.Active);
+
+            _dbContext.SaveChanges();
         }
     }
 }
