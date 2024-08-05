@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace DevFreela.Application.Commands
+namespace DevFreela.Application.Commands.CreateProject
 {
     public class CreateProjectCommand : IRequest<int>
     {

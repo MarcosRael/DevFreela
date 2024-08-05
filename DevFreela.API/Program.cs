@@ -1,5 +1,5 @@
 using DevFreela.API.Models;
-using DevFreela.Application.Commands;
+using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Infrastruture.Persistence;

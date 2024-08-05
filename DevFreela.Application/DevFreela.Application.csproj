@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\GetAllProject\" />
+    <Folder Include="Commands\GetByIdProject\" />
     <Folder Include="Queries\GetAllSkills\" />
   </ItemGroup>
 

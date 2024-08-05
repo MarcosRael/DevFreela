@@ -22,84 +22,84 @@ namespace DevFreela.Application.Services.Implementations
             _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
-        public int Create(NewProjectInputModel inputModel)
-        {
-            var project = new Project(inputModel.Title,
-                                      inputModel.Description,
-                                      inputModel.IdClient,
-                                      inputModel.IdFreelancer,
-                                      inputModel.TotalCost);
+        //public int Create(NewProjectInputModel inputModel)
+        //{
+        //    var project = new Project(inputModel.Title,
+        //                              inputModel.Description,
+        //                              inputModel.IdClient,
+        //                              inputModel.IdFreelancer,
+        //                              inputModel.TotalCost);
 
-            _dbContext.Projects.Add(project);
+        //    _dbContext.Projects.Add(project);
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "INSERT INTO Project (Title, Description, IdClient, IdFreelancer, TotalCost) " +
-                    "VALUE (@title, @description, @idclient, @idfreelancer, @totalcost)";
+        //        var script = "INSERT INTO Project (Title, Description, IdClient, IdFreelancer, TotalCost) " +
+        //            "VALUE (@title, @description, @idclient, @idfreelancer, @totalcost)";
 
-                return sqlConnection.ExecuteScalar<int>(script, new { title = project.Title
-                                                    ,description = project.Description
-                                                    ,idclient = project.IdClient
-                                                    ,idfreelancer = project.IdFreelancer
-                                                    ,totalcost = project.TotalCost});
-            }
+        //        return sqlConnection.ExecuteScalar<int>(script, new { title = project.Title
+        //                                            ,description = project.Description
+        //                                            ,idclient = project.IdClient
+        //                                            ,idfreelancer = project.IdFreelancer
+        //                                            ,totalcost = project.TotalCost});
+        //    }
 
-        }
+        //}
 
-        public void CreateComment(CreateCommentInputModel inputModel)
-        {
-            var comment = new ProjectComment(inputModel.Content,
-                                             inputModel.IdProject,
-                                             inputModel.IdUser);
+        //public void CreateComment(CreateCommentInputModel inputModel)
+        //{
+        //    var comment = new ProjectComment(inputModel.Content,
+        //                                     inputModel.IdProject,
+        //                                     inputModel.IdUser);
 
-            _dbContext.ProjectComments.Add(comment);
+        //    _dbContext.ProjectComments.Add(comment);
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "INSERT INTO ProjectComments (Content, IdProject, IdUser)" +
-                    "VALUE (@content, @idproject, @iduser)";
+        //        var script = "INSERT INTO ProjectComments (Content, IdProject, IdUser)" +
+        //            "VALUE (@content, @idproject, @iduser)";
 
-                sqlConnection.Execute(script, new { content = comment.Content, idproject = comment.IdProject, iduser = comment.IdUser});
-            }
+        //        sqlConnection.Execute(script, new { content = comment.Content, idproject = comment.IdProject, iduser = comment.IdUser});
+        //    }
 
-        }
+        //}
 
-        public void Delete(int id)
-        {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
+        //public void Delete(int id)
+        //{
+        //    var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
-            project?.Cancel();
+        //    project?.Cancel();
 
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "DELETE FROM Project WHERE Id = @id";
+        //        var script = "DELETE FROM Project WHERE Id = @id";
 
-                sqlConnection.Execute(script, new {id});
-            }
-        }
+        //        sqlConnection.Execute(script, new {id});
+        //    }
+        //}
 
-        public void Finish(int id)
-        {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
+        //public void Finish(int id)
+        //{
+        //    var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
-            project?.Finish();
+        //    project?.Finish();
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "UPDATE Project SET Status = @status, FinishedAt = @finishedat WHERE Id = @id";
+        //        var script = "UPDATE Project SET Status = @status, FinishedAt = @finishedat WHERE Id = @id";
 
-                sqlConnection.Execute(script, new { status = project.Status, finishedat = project.FinishedAt, id});
-            }
-        }
+        //        sqlConnection.Execute(script, new { status = project.Status, finishedat = project.FinishedAt, id});
+        //    }
+        //}
 
         public List<ProjectViewModel> GetAll(string query)
         {
@@ -138,37 +138,37 @@ namespace DevFreela.Application.Services.Implementations
               return projectDetailsViewModel;
         }
 
-        public void Start(int id)
-        {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
+        //public void Start(int id)
+        //{
+        //    var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
-            project?.Start();
+        //    project?.Start();
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "UPDATE Projects SET Status = @status, StartedAt = @startedat WHERE Id = @Id";
+        //        var script = "UPDATE Projects SET Status = @status, StartedAt = @startedat WHERE Id = @Id";
 
-                sqlConnection.Execute(script, new { status = project.Status, startedat = project.StartedAt, id });
+        //        sqlConnection.Execute(script, new { status = project.Status, startedat = project.StartedAt, id });
 
-            }
-        }
+        //    }
+        //}
 
-        public void Update(UpdateProjectInputModel inputModel)
-        {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == inputModel.Id);
+        //public void Update(UpdateProjectInputModel inputModel)
+        //{
+        //    var project = _dbContext.Projects.SingleOrDefault(p => p.Id == inputModel.Id);
 
-            project?.Update(inputModel.Title, inputModel.Description, inputModel.TotalCost);
+        //    project?.Update(inputModel.Title, inputModel.Description, inputModel.TotalCost);
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "UPDATE Projects SET Title = @title, Description = @description, TotalCost = @totalcost WHERE @Id = @id";
+        //        var script = "UPDATE Projects SET Title = @title, Description = @description, TotalCost = @totalcost WHERE @Id = @id";
 
-                sqlConnection.Execute(script, new { title = project.Title, description = project.Description, totalcost = project.TotalCost, id = project.Id});
-            }
-        }
+        //        sqlConnection.Execute(script, new { title = project.Title, description = project.Description, totalcost = project.TotalCost, id = project.Id});
+        //    }
+        //}
     }
 }
