@@ -101,42 +101,42 @@ namespace DevFreela.Application.Services.Implementations
         //    }
         //}
 
-        public List<ProjectViewModel> GetAll(string query)
-        {
-            var projetcs = _dbContext.Projects;
+        //public List<ProjectViewModel> GetAll(string query)
+        //{
+        //    var projetcs = _dbContext.Projects;
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
+        //    using (var sqlConnection = new SqlConnection(_connectionString))
+        //    {
+        //        sqlConnection.Open();
 
-                var script = "SELECT Id, Title, CreateAt FROM Project";
+        //        var script = "SELECT Id, Title, CreateAt FROM Project";
 
-                return sqlConnection.Query<ProjectViewModel>(script).ToList();
-            }
-        }
+        //        return sqlConnection.Query<ProjectViewModel>(script).ToList();
+        //    }
+        //}
 
-        public ProjectDetailsViewModel GetById(int id)
-        {
-            //TODO: Implement Dapper this query
+        //public ProjectDetailsViewModel GetById(int id)
+        //{
+        //    //TODO: Implement Dapper this query
 
-            var project = _dbContext.Projects
-                .Include(p => p.Client)
-                .Include(p => p.Freelancer)
-                .SingleOrDefault(p => p.Id == id);
+        //    var project = _dbContext.Projects
+        //        .Include(p => p.Client)
+        //        .Include(p => p.Freelancer)
+        //        .SingleOrDefault(p => p.Id == id);
 
-            var projectDetailsViewModel = new ProjectDetailsViewModel(
-                project.Id,
-                project.Title,
-                project.Description,
-                project.TotalCost,
-                project.StartedAt,
-                project.CreatedAt,
-                project.Client.FullName,
-                project.Freelancer.FullName
-                );
+        //    var projectDetailsViewModel = new ProjectDetailsViewModel(
+        //        project.Id,
+        //        project.Title,
+        //        project.Description,
+        //        project.TotalCost,
+        //        project.StartedAt,
+        //        project.CreatedAt,
+        //        project.Client.FullName,
+        //        project.Freelancer.FullName
+        //        );
 
-              return projectDetailsViewModel;
-        }
+        //      return projectDetailsViewModel;
+        //}
 
         //public void Start(int id)
         //{
