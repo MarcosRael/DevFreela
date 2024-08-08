@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using DevFreeka.Core.Entities;
+using DevFreela.Core.Entities;
 using DevFreela.Infrastruture.Persistence;
 using MediatR;
 using Microsoft.Data.SqlClient;

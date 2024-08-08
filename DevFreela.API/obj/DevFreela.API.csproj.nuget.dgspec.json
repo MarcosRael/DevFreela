@@ -104,6 +104,9 @@
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj"
               },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
+              },
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
               }
@@ -199,6 +202,9 @@
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
               },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
+              },
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
               }
@@ -284,6 +290,9 @@
             "projectReferences": {
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
+              },
+              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
               }
             }
           }
@@ -303,6 +312,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.1, )"

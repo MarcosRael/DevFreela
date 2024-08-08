@@ -1,38 +1,21 @@
-﻿using DevFreela.Application.ViewModels;
-using Dapper;
-using DevFreela.Infrastruture.Persistence;
+﻿using DevFreela.Core.DTO;
+using DevFreela.Core.Repositories;
 using MediatR;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFreela.Application.Queries.GetAllSkills
 {
-    public class GetAllSkillsQueryHandler : IRequestHandler<GetAllSkillsQuery, List<SkillViewModel>>
+    public class GetAllSkillsQueryHandler : IRequestHandler<GetAllSkillsQuery, List<SkillDTO>>
     {
-        private readonly string? _connectionString;
+        private readonly ISkillRepository _skillRepositry;
 
-        public GetAllSkillsQueryHandler(IConfiguration configuration)
+        public GetAllSkillsQueryHandler(ISkillRepository skillRepository)
         {
-            _connectionString = configuration.GetConnectionString("DevFreelaCs");
+            _skillRepositry = skillRepository;
         }
 
-        public async Task<List<SkillViewModel>> Handle(GetAllSkillsQuery request, CancellationToken cancellationToken)
+        public async Task<List<SkillDTO>> Handle(GetAllSkillsQuery request, CancellationToken cancellationToken)
         {
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
-
-                var script = "SELECT Id, Description FROM Skills";
-
-                var skills = await sqlConnection.QueryAsync<SkillViewModel>(script);
-
-                return skills.ToList();
-            }
+            return await _skillRepositry.GetAll();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DevFreeka.Core.Entities;
+﻿using DevFreela.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

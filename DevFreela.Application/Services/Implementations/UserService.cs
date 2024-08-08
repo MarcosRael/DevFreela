@@ -1,4 +1,4 @@
-﻿using DevFreeka.Core.Entities;
+﻿using DevFreela.Core.Entities;
 using DevFreela.Application.InputModels;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Application.ViewModels;

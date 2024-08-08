@@ -1,4 +1,4 @@
-﻿using DevFreeka.Core.Entities;
+﻿using DevFreela.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

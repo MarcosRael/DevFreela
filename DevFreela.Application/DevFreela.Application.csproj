@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevFreeka.Core\DevFreela.Core.csproj" />
+    <ProjectReference Include="..\DevFreela.Core\DevFreela.Core.csproj" />
     <ProjectReference Include="..\DevFreela.Infrastruture\DevFreela.Infrastruture.csproj" />
   </ItemGroup>
 

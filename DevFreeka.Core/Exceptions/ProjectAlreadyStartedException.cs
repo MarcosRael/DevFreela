@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFreeka.Core.Exceptions
+namespace DevFreela.Core.Exceptions
 {
     public class ProjectAlreadyStartedException : Exception
     {
