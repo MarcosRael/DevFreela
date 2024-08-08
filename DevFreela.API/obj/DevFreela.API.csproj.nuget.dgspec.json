@@ -98,17 +98,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
-                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
-              },
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Application\\DevFreela.Application.csproj"
-              },
-              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
-                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
-              },
-              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
-                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
               }
             }
           }
@@ -202,9 +193,6 @@
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
               },
-              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
-                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
-              },
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Infrastruture\\DevFreela.Infrastruture.csproj"
               }
@@ -290,9 +278,6 @@
             "projectReferences": {
               "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj": {
                 "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreeka.Core\\DevFreela.Core.csproj"
-              },
-              "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj": {
-                "projectPath": "C:\\Projetos\\Treinamentos\\Codigos\\DevFreela\\DevFreela.Core\\DevFreela.Core.csproj"
               }
             }
           }
