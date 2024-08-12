@@ -9,35 +9,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Azure.Core;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Application.Commands.FinishProject
 {
     public class FinishProjectCommandHandler : IRequestHandler<FinishProjectCommand, Unit>
     {
-        private readonly DevFreelaDbContext _dbContext;
-        private readonly string? _connectionString;
+        private readonly IProjectRepository _projectRepository;
+        //private readonly DevFreelaDbContext _dbContext;
+        //private readonly string? _connectionString;
 
-        public FinishProjectCommandHandler(DevFreelaDbContext dbContext, IConfiguration configuration)
+        public FinishProjectCommandHandler(IProjectRepository projectRepository)
         {
-            _dbContext = dbContext;
-            _connectionString = configuration.GetConnectionString("DevFreelaCs");
+            _projectRepository = projectRepository;
+            //_dbContext = dbContext;
+            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
         public async Task<Unit> Handle(FinishProjectCommand request, CancellationToken cancellationToken)
         {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == request.Id);
+            var project = await _projectRepository.GetByIdAsync(request.Id);
 
             project?.Finish();
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
-
-                var script = "UPDATE Project SET Status = @status, FinishedAt = @finishedat WHERE Id = @id";
-
-               await sqlConnection.ExecuteAsync(script, new { status = project.Status, finishedat = project.FinishedAt, request.Id });
-            }
-
+            await _projectRepository.FinishAsync(project);
+            
             return Unit.Value;
         }
     }

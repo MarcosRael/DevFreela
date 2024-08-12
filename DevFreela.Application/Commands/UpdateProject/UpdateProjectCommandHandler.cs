@@ -8,35 +8,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Application.Commands.UpdateProject
 {
     public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand, Unit>
     {
-        private readonly DevFreelaDbContext _dbContext;
-        private readonly string? _connectionString;
 
-        public UpdateProjectCommandHandler(DevFreelaDbContext dbContext, IConfiguration configuration)    
+        private readonly IProjectRepository _projectRepository;
+        //private readonly DevFreelaDbContext _dbContext;
+        //private readonly string? _connectionString;
+
+        public UpdateProjectCommandHandler(IProjectRepository projectRepository)    
         {
-            _dbContext = dbContext;
-            _connectionString = configuration.GetConnectionString("DevFreelaCs");
+            _projectRepository = projectRepository;
+            //_dbContext = dbContext;
+            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
         public async Task<Unit> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
         {
-            var project = _dbContext.Projects.SingleOrDefault(p => p.Id == request.Id);
+            var project = await _projectRepository.GetByIdAsync(request.Id);
 
             project?.Update(request.Title, request.Description, request.TotalCost);
 
-            using (var sqlConnection = new SqlConnection(_connectionString))
-            {
-                sqlConnection.Open();
-
-                var script = "UPDATE Projects SET Title = @title, Description = @description, TotalCost = @totalcost WHERE @Id = @id";
-
-                await sqlConnection.ExecuteAsync(script, new { title = project.Title, description = project.Description, totalcost = project.TotalCost, id = project.Id });
-            }
-
+            await _projectRepository.SaveChangeAsync(project);
+            
             return Unit.Value;
         }
     }
