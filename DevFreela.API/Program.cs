@@ -2,7 +2,9 @@ using DevFreela.API.Models;
 using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastruture.Persistence;
+using DevFreela.Infrastruture.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,8 +24,13 @@ namespace DevFreela.API
             var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
             builder.Services.AddDbContext<DevFreelaDbContext>(option => option.UseSqlServer(connectionString));
 
-            builder.Services.AddScoped<IProjectService, ProjectService>();
-            builder.Services.AddScoped<IUserService, UserService>();
+            //builder.Services.AddScoped<IProjectService, ProjectService>();
+            //builder.Services.AddScoped<IUserService, UserService>();
+            //builder.Services.AddScoped<ISkillService, SkillService>();
+
+            // Add Repository
+            builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillService, SkillService>();
 
             // Add services to the container.
