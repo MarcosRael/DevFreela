@@ -20,6 +20,15 @@ namespace DevFreela.Infrastruture.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<int> AddAsync(User user)
+        {
+            _dbContext.Users.Add(user);
+
+            await _dbContext.SaveChangesAsync();
+
+            return user.Id;
+        }
+
         public async Task<User> GetByIdAsync(int id)
         {
             var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.Id == id);

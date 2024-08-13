@@ -118,5 +118,18 @@ namespace DevFreela.Infrastruture.Repositories
                 await sqlConnection.ExecuteAsync(script, new { title = project.Title, description = project.Description, totalcost = project.TotalCost, id = project.Id });
             }
         }
+
+        public async Task AddCommentAsync(ProjectComment projectComment)
+        {
+            using (var sqlConnection = new SqlConnection(_connectionString))
+            {
+                sqlConnection.Open();
+
+                var script = "INSERT INTO ProjectComments (Content, IdProject, IdUser)" +
+                    "VALUE (@content, @idproject, @iduser)";
+
+                await sqlConnection.ExecuteAsync(script, new { content = projectComment.Content, idproject = projectComment.IdProject, iduser = projectComment.IdUser });
+            }
+        }
     }
 }

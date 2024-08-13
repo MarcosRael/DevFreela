@@ -1,9 +1,11 @@
 ﻿using DevFreela.Core.Entities;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastruture.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +13,13 @@ namespace DevFreela.Application.Commands.PostUser
 {
     public class PostUserCommandHandler : IRequestHandler<PostUserCommand, int>
     {
+        private readonly IUserRepository _userRepository;
+        //private readonly DevFreelaDbContext _dbContext;
 
-        private readonly DevFreelaDbContext _dbContext;
-
-        public PostUserCommandHandler(DevFreelaDbContext dbContext)
+        public PostUserCommandHandler(IUserRepository userRepository)
         {
-            _dbContext = dbContext;
+            _userRepository = userRepository;
+           // _dbContext = dbContext;
         }
 
         public async Task<int> Handle(PostUserCommand request, CancellationToken cancellationToken)
@@ -25,10 +28,9 @@ namespace DevFreela.Application.Commands.PostUser
                                 request.Email,
                                 request.BirthDate);
 
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
+            var id = await _userRepository.AddAsync(user);
 
-            return user.Id;
+            return id;
         }
     }
 }

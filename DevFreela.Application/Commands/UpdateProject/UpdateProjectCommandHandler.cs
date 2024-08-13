@@ -14,7 +14,6 @@ namespace DevFreela.Application.Commands.UpdateProject
 {
     public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand, Unit>
     {
-
         private readonly IProjectRepository _projectRepository;
         //private readonly DevFreelaDbContext _dbContext;
         //private readonly string? _connectionString;
