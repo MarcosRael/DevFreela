@@ -9,20 +9,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFreela.Application.Commands.PostUser
+namespace DevFreela.Application.Commands.CreateUser
 {
-    public class PostUserCommandHandler : IRequestHandler<PostUserCommand, int>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
     {
         private readonly IUserRepository _userRepository;
         //private readonly DevFreelaDbContext _dbContext;
 
-        public PostUserCommandHandler(IUserRepository userRepository)
+        public CreateUserCommandHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
            // _dbContext = dbContext;
         }
 
-        public async Task<int> Handle(PostUserCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User(request.FullName,
                                 request.Email,
