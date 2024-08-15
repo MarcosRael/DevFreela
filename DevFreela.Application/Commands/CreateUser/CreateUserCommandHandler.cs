@@ -16,7 +16,6 @@ namespace DevFreela.Application.Commands.CreateUser
         private readonly IUserRepository _userRepository;
 
         public CreateUserCommandHandler(IUserRepository userRepository) => _userRepository = userRepository;
-        {
 
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {

@@ -8,6 +8,9 @@ C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\DevFre
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Azure.Core.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Azure.Identity.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Dapper.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Humanizer.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\MediatR.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\MediatR.Contracts.dll
@@ -147,6 +150,3 @@ C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\refint
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\DevFreela.API.pdb
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\DevFreela.API.genruntimeconfig.cache
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\obj\Debug\net8.0\ref\DevFreela.API.dll
-C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.dll
-C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
-C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
