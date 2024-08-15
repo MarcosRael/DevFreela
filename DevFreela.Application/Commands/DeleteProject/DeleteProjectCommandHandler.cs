@@ -15,15 +15,8 @@ namespace DevFreela.Application.Commands.DeleteProject
     public class DeleteProjectCommandHandler : IRequestHandler<DeleteProjectCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public DeleteProjectCommandHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository; 
-            //_dbContext= dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+        public DeleteProjectCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<Unit> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
         {

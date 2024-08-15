@@ -8,11 +8,8 @@ namespace DevFreela.Application.Queries.GetAllProject
     {
         private readonly IProjectRepository _projectRepository;
 
-        public GetAllProjectQueryHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-        }
-
+        public GetAllProjectQueryHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
+    
         public async Task<List<ProjectViewModel>> Handle(GetAllProjectQuery request, CancellationToken cancellationToken)
         {
             var projects = await _projectRepository.GetAllAsync();

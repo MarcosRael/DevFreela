@@ -17,12 +17,5 @@ namespace DevFreela.Application.Commands.CreateUser
 
         public DateTime BirthDate { get; private set; }
 
-        public CreateUserCommand(string fullName, string email, string password, DateTime birthDate)
-        {
-            FullName = fullName;
-            Email = email;
-            Password = password;
-            BirthDate = birthDate;
-        }
     }
 }

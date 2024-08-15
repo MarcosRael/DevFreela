@@ -16,15 +16,8 @@ namespace DevFreela.Application.Queries.GetByIdProject
     {
 
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public GetByIdProjectQueryHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+        public GetByIdProjectQueryHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<ProjectDetailsViewModel> Handle(GetByIdProjectQuery request, CancellationToken cancellationToken)
         {

@@ -1,34 +1,21 @@
-﻿using DevFreela.API.Models;
-using DevFreela.Application.Commands.CreateUser;
-using DevFreela.Application.InputModels;
+﻿using DevFreela.Application.Commands.CreateUser;
 using DevFreela.Application.Queries.GetByIdUser;
-using DevFreela.Application.Services.Interfaces;
-using MediatR;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Abstractions;
-using System.ComponentModel.Design;
+using DevFreela.API.Models;
+using MediatR;
 
 namespace DevFreela.API.Controllers
 {
     [Route("api/users")]
     public class UsersController : ControllerBase
     {
-        //private readonly IUserService _userService;
-
         private readonly IMediator _mediator;
 
-        public UsersController( IMediator mediator)
-        {
-            //_userService = userService;
-            _mediator = mediator;
-        }
+        public UsersController(IMediator mediator) => _mediator = mediator;
 
         [HttpGet]
         public IActionResult GetById(int id)
         {
-            //var user = _userService.GetById(id);
-
             var query = new GetByIdUserQuery(id);
 
             var user = _mediator.Send(query);
@@ -42,19 +29,7 @@ namespace DevFreela.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserCommand command)
         {
-            //var id = _userService.Create(inputModel);
-
-            if (!ModelState.IsValid)
-            {
-                var messages = ModelState
-                       .SelectMany(ms => ms.Value.Errors)
-                       .Select(e => e.ErrorMessage)
-                       .ToList();
-
-                return BadRequest(messages);
-            }
-
-           var id = _mediator.Send(command);
+            var id = _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }

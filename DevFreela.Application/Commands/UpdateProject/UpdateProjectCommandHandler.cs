@@ -15,15 +15,8 @@ namespace DevFreela.Application.Commands.UpdateProject
     public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public UpdateProjectCommandHandler(IProjectRepository projectRepository)    
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+        public UpdateProjectCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<Unit> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
         {

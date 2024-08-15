@@ -17,14 +17,9 @@ namespace DevFreela.Application.Queries.GetByIdUser
     {
 
         private readonly IUserRepository _userRepository;
-        //private readonly DevFreelaDbContext _dbContext;
 
-        public GetByIdUserQueryHandler(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-            //_dbContext = dbContext;
-        }
-
+        public GetByIdUserQueryHandler(IUserRepository userRepository) => _userRepository = userRepository;
+     
         public async Task<UserDetailsViewModel> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(request.Id);

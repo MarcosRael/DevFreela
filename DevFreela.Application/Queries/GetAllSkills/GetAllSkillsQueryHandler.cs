@@ -8,10 +8,7 @@ namespace DevFreela.Application.Queries.GetAllSkills
     {
         private readonly ISkillRepository _skillRepositry;
 
-        public GetAllSkillsQueryHandler(ISkillRepository skillRepository)
-        {
-            _skillRepositry = skillRepository;
-        }
+        public GetAllSkillsQueryHandler(ISkillRepository skillRepository) => _skillRepositry = skillRepository;
 
         public async Task<List<SkillDTO>> Handle(GetAllSkillsQuery request, CancellationToken cancellationToken)
         {

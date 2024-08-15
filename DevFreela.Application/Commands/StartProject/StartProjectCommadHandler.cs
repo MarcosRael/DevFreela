@@ -16,15 +16,8 @@ namespace DevFreela.Application.Commands.StartProject
     public class StartProjectCommadHandler : IRequestHandler<StartProjectCommad, Unit>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public StartProjectCommadHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+        public StartProjectCommadHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<Unit> Handle(StartProjectCommad request, CancellationToken cancellationToken)
         {

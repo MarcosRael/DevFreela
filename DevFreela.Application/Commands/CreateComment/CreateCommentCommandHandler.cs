@@ -16,15 +16,8 @@ namespace DevFreela.Application.Commands.CreateComment
     public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
-
-        public CreateCommentCommandHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+ 
+        public CreateCommentCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<Unit> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
         {

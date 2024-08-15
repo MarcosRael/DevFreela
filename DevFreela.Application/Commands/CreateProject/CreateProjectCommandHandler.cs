@@ -17,15 +17,8 @@ namespace DevFreela.Application.Commands.CreateProject
     public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public CreateProjectCommandHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
+        public CreateProjectCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<int> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
         {

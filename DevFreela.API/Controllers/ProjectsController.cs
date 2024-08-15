@@ -1,40 +1,27 @@
-﻿using DevFreela.API.Models;
-using DevFreela.Application.Commands.CreateComment;
+﻿using DevFreela.Application.Commands.CreateComment;
 using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Commands.DeleteProject;
 using DevFreela.Application.Commands.FinishProject;
-using DevFreela.Application.Commands.StartProject;
 using DevFreela.Application.Commands.UpdateProject;
-using DevFreela.Application.InputModels;
-using DevFreela.Application.Queries.GetAllProject;
 using DevFreela.Application.Queries.GetByIdProject;
-using DevFreela.Application.Services.Interfaces;
-using MediatR;
+using DevFreela.Application.Commands.StartProject;
+using DevFreela.Application.Queries.GetAllProject;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Abstractions;
-using Microsoft.Extensions.Options;
-using System.Linq;
+using MediatR;
 
 namespace DevFreela.API.Controllers
 {
     [Route("api/projects")]
     public class ProjectsController : ControllerBase
     {
-        private readonly IProjectService _projectService;
-
         private readonly IMediator _mediator;
 
-        public ProjectsController(IProjectService projectService, IMediator mediator)
-        {
-            this._projectService = projectService;
-            this._mediator = mediator;
-        }
+        public ProjectsController(IMediator mediator) => _mediator = mediator;
+
 
         [HttpGet]
         public async Task<IActionResult> GetAll(string sQuery)
         {
-            //var projects = _projectService.GetAll(query);
-
             var query = new GetAllProjectQuery(sQuery);
 
             var projects = await _mediator.Send(query);
@@ -45,13 +32,11 @@ namespace DevFreela.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            //var project = _projectService.GetById(id);
-
             var query = new GetByIdProjectQuery(id);
 
             var project = await _mediator.Send(query);
 
-            if(project == null) 
+            if (project == null)
                 return NotFound();
 
             return Ok(project);
@@ -60,18 +45,6 @@ namespace DevFreela.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
-            if (!ModelState.IsValid)
-            {
-                var messages = ModelState
-                    .SelectMany(ms => ms.Value.Errors)
-                    .Select(e => e.ErrorMessage)
-                    .ToList();
-
-                return BadRequest(messages);
-            }
-
-
-            //var id = _projectService.Create(inputModel);
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
@@ -80,11 +53,6 @@ namespace DevFreela.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
         {
-            if(command.Description.Length > 200)
-                return BadRequest();
-
-            //_projectService.Update(inputModel);
-
             await _mediator.Send(command);
 
             return NoContent();
@@ -93,8 +61,6 @@ namespace DevFreela.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(DeleteProjectCommand command)
         {
-            //_projectService.Delete(id);
-
             await _mediator.Send(command);
 
             return NoContent();
@@ -103,8 +69,6 @@ namespace DevFreela.API.Controllers
         [HttpPost("{id}/comments")]
         public async Task<IActionResult> PostComment(int id, [FromBody] CreateCommentCommand command)
         {
-            //_projectService.CreateComment(inputModel);
-
             await _mediator.Send(command);
 
             return NoContent();
@@ -113,8 +77,6 @@ namespace DevFreela.API.Controllers
         [HttpPut("{id}/start")]
         public async Task<IActionResult> Start(StartProjectCommad command)
         {
-            //_projectService.Start(id);
-
             await _mediator.Send(command);
 
             return NoContent();
@@ -123,8 +85,6 @@ namespace DevFreela.API.Controllers
         [HttpPut("{id}/finish")]
         public async Task<IActionResult> Finish(FinishProjectCommand command)
         {
-            //_projectService.Finish(id);
-
             await _mediator.Send(command);
 
             return NoContent();

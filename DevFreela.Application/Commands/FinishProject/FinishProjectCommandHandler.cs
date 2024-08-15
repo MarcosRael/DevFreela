@@ -16,16 +16,9 @@ namespace DevFreela.Application.Commands.FinishProject
     public class FinishProjectCommandHandler : IRequestHandler<FinishProjectCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
-        //private readonly DevFreelaDbContext _dbContext;
-        //private readonly string? _connectionString;
 
-        public FinishProjectCommandHandler(IProjectRepository projectRepository)
-        {
-            _projectRepository = projectRepository;
-            //_dbContext = dbContext;
-            //_connectionString = configuration.GetConnectionString("DevFreelaCs");
-        }
-
+        public FinishProjectCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository; 
+  
         public async Task<Unit> Handle(FinishProjectCommand request, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.GetByIdAsync(request.Id);
