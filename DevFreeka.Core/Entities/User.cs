@@ -9,12 +9,14 @@ namespace DevFreela.Core.Entities
     public class User : BaseEntity
     {
 
-        public User(string fullName, string email, DateTime birthDate)
+        public User(string fullName, string email, DateTime birthDate, string password, string role)
         {
             this.FullName = fullName;
             this.Email = email;
             this.BirthDate = birthDate;
             this.Active = true;
+            this.Password = password;
+            this.Role = role;
 
             this.CreatedAt = DateTime.Now;
             this.Skills = new List<UserSkill>();
@@ -31,6 +33,10 @@ namespace DevFreela.Core.Entities
         public DateTime CreatedAt { get; private set; }
 
         public bool Active { get; private set; }
+
+        public string Password { get; private set; }
+
+        public string Role { get; private set; }
 
         public List<UserSkill> Skills { get; private set; }
 

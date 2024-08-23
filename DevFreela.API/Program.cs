@@ -13,6 +13,8 @@ using DevFreela.Core.Repositories;
 using FluentValidation.AspNetCore;
 using DevFreela.API.Filters;
 using MediatR;
+using DevFreela.Core.Services;
+using DevFreela.Infrastruture.Auth;
 
 namespace DevFreela.API
 {
@@ -31,6 +33,7 @@ namespace DevFreela.API
             builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             // Add services to the container.
             builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
