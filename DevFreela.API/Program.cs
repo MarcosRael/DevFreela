@@ -9,18 +9,24 @@ using DevFreela.Infrastruture.Repositories;
 using DevFreela.Infrastruture.Persistence;
 using DevFreela.Application.Validators;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
+using Microsoft.IdentityModel.Tokens;
 using DevFreela.Core.Repositories;
 using FluentValidation.AspNetCore;
 using DevFreela.API.Filters;
 using MediatR;
 using DevFreela.Core.Services;
 using DevFreela.Infrastruture.Auth;
+using System.Text;
 
 namespace DevFreela.API
 {
     public class Program
     {
-        public Program() { }
+        public Program()  { }
+
+        public static IConfiguration Configuration { get;}
 
         public static void Main(string[] args)
         {
@@ -49,7 +55,56 @@ namespace DevFreela.API
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("V1", new OpenApiInfo { Title = "DevFreela.API", Version = "v1" });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header usando o esquema Bearer."
+
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+
+            });
+
+            // Para autenticação
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey
+                        (Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+
+                    };
+                });
 
             var app = builder.Build();
 
@@ -63,6 +118,8 @@ namespace DevFreela.API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.MapControllers();
 
