@@ -1,10 +1,12 @@
 ﻿using DevFreela.Application.Queries.GetAllSkills;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevFreela.API.Controllers
 {
     [Route("api/skills")]
+    [Authorize]
     public class SkillController : ControllerBase
     {
         private readonly IMediator _mediator;

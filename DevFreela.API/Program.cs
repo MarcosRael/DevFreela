@@ -24,9 +24,9 @@ namespace DevFreela.API
 {
     public class Program
     {
-        public Program()  { }
+        public Program() { }
 
-        public static IConfiguration Configuration { get;}
+        // public static IConfiguration Configuration { get; }
 
         public static void Main(string[] args)
         {
@@ -55,9 +55,10 @@ namespace DevFreela.API
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("V1", new OpenApiInfo { Title = "DevFreela.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevFreela.API", Version = "v1" });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -69,6 +70,7 @@ namespace DevFreela.API
                     Description = "JWT Authorization header usando o esquema Bearer."
 
                 });
+
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
@@ -98,10 +100,10 @@ namespace DevFreela.API
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
 
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Audience"],
+                        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                        ValidAudience = builder.Configuration["Jwt:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey
-                        (Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
 
                     };
                 });
@@ -111,15 +113,16 @@ namespace DevFreela.API
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI();//c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DevFreela.API"
             }
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
-
             app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.MapControllers();
 

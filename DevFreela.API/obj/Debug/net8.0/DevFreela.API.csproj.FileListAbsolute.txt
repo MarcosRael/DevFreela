@@ -15,6 +15,7 @@ C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Humani
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\MediatR.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Projetos\Treinamentos\Codigos\DevFreela\DevFreela.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
