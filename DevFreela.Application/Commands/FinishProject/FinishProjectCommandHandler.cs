@@ -10,24 +10,42 @@ using System.Text;
 using System.Threading.Tasks;
 using Azure.Core;
 using DevFreela.Core.Repositories;
+using System.ComponentModel.DataAnnotations;
+using DevFreela.Core.DTO;
+using DevFreela.Core.Services;
 
 namespace DevFreela.Application.Commands.FinishProject
 {
-    public class FinishProjectCommandHandler : IRequestHandler<FinishProjectCommand, Unit>
+    public class FinishProjectCommandHandler : IRequestHandler<FinishProjectCommand, bool>
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IPaymentService _paymentservice;
 
-        public FinishProjectCommandHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository; 
+        public FinishProjectCommandHandler(IProjectRepository projectRepository
+                                            , IPaymentService paymentService)
+        {  
+            _projectRepository = projectRepository; 
+            _paymentservice = paymentService;
+        
+        }
+            
   
-        public async Task<Unit> Handle(FinishProjectCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(FinishProjectCommand request, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
             project?.Finish();
 
+            var paymentInfoDto = new PaymentInfoDTO(request.Id, request.CreditCardNumber, request.Cvv, request.ExperesAt, request.FullName);
+
+            var result = await _paymentservice.ProcessPayment(paymentInfoDto);
+
+            if (!result)
+                project.SetPaymentPending();
+
             await _projectRepository.FinishAsync(project);
             
-            return Unit.Value;
+            return result;
         }
     }
 }
