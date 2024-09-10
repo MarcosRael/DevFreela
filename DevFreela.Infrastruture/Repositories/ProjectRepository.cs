@@ -27,8 +27,8 @@ namespace DevFreela.Infrastruture.Repositories
             {
                 sqlConnection.Open();
 
-                var script = "INSERT INTO Project (Title, Description, IdClient, IdFreelancer, TotalCost) " +
-                    "VALUE (@title, @description, @idclient, @idfreelancer, @totalcost)";
+                var script = "INSERT INTO Projects (Title, Description, IdClient, IdFreelancer, TotalCost, CreatedAt, Status) " +
+                    "VALUES (@title, @description, @idclient, @idfreelancer, @totalcost, @createdat, @status)";
 
                 return await sqlConnection.ExecuteScalarAsync<int>(script, new
                 {
@@ -41,6 +41,10 @@ namespace DevFreela.Infrastruture.Repositories
                     idfreelancer = project.IdFreelancer
                     ,
                     totalcost = project.TotalCost
+                    ,
+                    createdat = project.CreatedAt
+                    ,
+                    status = project.Status
                 });
 
             }

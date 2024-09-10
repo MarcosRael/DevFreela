@@ -19,6 +19,7 @@ using MediatR;
 using DevFreela.Core.Services;
 using DevFreela.Infrastruture.Auth;
 using System.Text;
+using DevFreela.Infrastruture.Payments;
 
 namespace DevFreela.API
 {
@@ -35,11 +36,14 @@ namespace DevFreela.API
             var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
             builder.Services.AddDbContext<DevFreelaDbContext>(option => option.UseSqlServer(connectionString));
 
+            builder.Services.AddHttpClient();
+
             // Add Repository
             builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
             builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
 
             // Add services to the container.
             builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
