@@ -20,6 +20,7 @@ using DevFreela.Core.Services;
 using DevFreela.Infrastruture.Auth;
 using System.Text;
 using DevFreela.Infrastruture.Payments;
+using DevFreela.Infrastruture.MessageBus;
 
 namespace DevFreela.API
 {
@@ -44,6 +45,7 @@ namespace DevFreela.API
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IPaymentService, PaymentService>();
+            builder.Services.AddScoped<IMessageBusService, MessageBusService>();
 
             // Add services to the container.
             builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
